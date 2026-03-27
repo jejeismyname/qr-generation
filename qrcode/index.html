@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional QR Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; background: #f4f4f9; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; width: 350px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; box-sizing: border-box; border-radius: 5px; border: 1px solid #ccc; }
+        #canvas-container { margin: 20px 0; }
+        .buttons { display: flex; gap: 10px; }
+        button { flex: 1; padding: 10px; border: none; border-radius: 5px; color: white; cursor: pointer; font-weight: bold; }
+        .btn-png { background: #27ae60; }
+        .btn-jpg { background: #2980b9; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>QR Generator</h2>
+        <input type="text" id="doc-link" placeholder="Masukkan Link Dokumen Asli" value="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf">
+        <input type="file" id="logo-input" accept="image/*">
+        
+        <div id="canvas-container">
+            <canvas id="qr-canvas"></canvas>
+        </div>
+
+        <div class="buttons">
+            <button class="btn-png" onclick="downloadQR('png')">Download PNG</button>
+            <button class="btn-jpg" onclick="downloadQR('jpg')">Download JPG</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

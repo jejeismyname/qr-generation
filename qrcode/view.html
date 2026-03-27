@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessing Document...</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; overflow: hidden; }
+        #preview { width: 100%; height: 100%; border: none; }
+        #error-404 { 
+            display: none; height: 100vh; background: white; 
+            flex-direction: column; justify-content: center; align-items: center; 
+        }
+        h1 { font-size: 80px; margin: 0; color: #333; }
+        p { color: #888; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div id="doc-container" style="height: 100%;">
+        <iframe id="preview" src=""></iframe>
+    </div>
+
+    <div id="error-404">
+        <h1>404</h1>
+        <p>Page Not Found</p>
+    </div>
+
+    <script>
+        // Ambil link asli dari parameter URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const target = urlParams.get('target');
+        if (target) document.getElementById('preview').src = target;
+
+        // Jeda 3 detik sebelum meledak jadi 404
+        setTimeout(() => {
+            document.getElementById('doc-container').style.display = 'none';
+            document.getElementById('error-404').style.display = 'flex';
+            document.title = "404 Not Found";
+        }, 3000);
+    </script>
+</body>
+</html>
