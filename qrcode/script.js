@@ -7,7 +7,7 @@ function generateQR() {
     
     // KUNCI UTAMA: QR tidak berisi link dokumen, tapi link ke file view.html
     // Kita selipkan link dokumen asli sebagai parameter 'target'
-    const gatewayUrl = `view.html?target=${encodeURIComponent(originalLink)}`;
+    const gatewayUrl = `https://jejeismyname.github.io/qr-generation/view.html?target=${encodeURIComponent(originalLink)}`;
 
     const qr = new QRious({
         element: canvas,
